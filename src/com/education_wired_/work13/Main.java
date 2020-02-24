@@ -12,7 +12,7 @@ public class Main {
     }
 
     public static Train createTrain(){
-        Train train = new Train(Train.getNextNumb());
+        Train train = new Train();
         train.setStationDispatch("Kyiv");
         train.setStationArrival("Lviv");
         train.setTimeDispatch("12:00");

@@ -13,20 +13,12 @@ public class Train {
     private String timeArrival;
     private DaysOfWeek[] days;
 
-    public Train(int number) {
-        this.number = number;
-        nextNumb++;
+    public Train() {
+        this.number = nextNumb++;
     }
 
-    public static int getNextNumb(){
-        return nextNumb;
-    }
     public int getNumber() {
         return number;
-    }
-
-    public void setNumber(int number) {
-        this.number = number;
     }
 
     public String getStationDispatch() {
