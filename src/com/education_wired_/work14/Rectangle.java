@@ -40,4 +40,10 @@ public class Rectangle extends Shape{
     public String toString() {
         return super.toString() + ", width = "+ width + ", heigth = " + heigth;
     }
+
+    public static Rectangle parseRectangle(String stringToParse){
+        String[] parseArgs = stringToParse.split(":");
+        return new Rectangle(parseArgs[1],Integer.parseInt(parseArgs[2]),Integer.parseInt(parseArgs[3]));
+    }
+
 }

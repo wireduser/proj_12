@@ -51,4 +51,9 @@ public class Triangle extends Shape {
     public String toString() {
         return super.toString() +", a = " + a +", b = " + b +", c = " + c ;
     }
+
+    public static Triangle parseTriangle(String stringToParse){
+        String[] parseArgs = stringToParse.split(":");
+        return new Triangle(parseArgs[1],Integer.parseInt(parseArgs[2]),Integer.parseInt(parseArgs[3]),Integer.parseInt(parseArgs[4]));
+    }
 }

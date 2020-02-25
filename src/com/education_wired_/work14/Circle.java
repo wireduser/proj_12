@@ -30,5 +30,9 @@ public class Circle extends Shape {
         return super.toString() + ", radius = "+ radius;
     }
 
+    public static Circle parseCircle(String circleString){
+        String[] parseArgs = circleString.split(":");
+        return new Circle(parseArgs[1],Integer.parseInt(parseArgs[2]));
+    }
 
 }

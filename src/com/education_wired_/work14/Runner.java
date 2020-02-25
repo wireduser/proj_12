@@ -1,18 +1,22 @@
 package com.education_wired_.work14;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Runner {
-    public void run( ) throws CloneNotSupportedException{
+    public void run( ) throws CloneNotSupportedException, ClassNotFoundException {
 
         System.out.println("---parse---");
         Shape[] shapes = createShapes();
         infoShapes(shapes);
+        infoShapes(createShpesByScanner());
     }
 
     public  Shape[] createShapes(){
         return new Shape[] {
             Shape.parseShape("Triangle:RED:12:13:12"),
+            Shape.parseShape("cirCle:graY:10"),
+            Shape.parseShape("ReCtanGle :Orange:3:12"),
         };
     }
 
@@ -23,48 +27,17 @@ public class Runner {
         }
     }
 
-    public   double areaShapes( Shape[] shapes){
-        double area = 0;
-        for (Shape shape: shapes){
-            area += shape.calcArea();
+    public Shape[] createShpesByScanner(){
+        Scanner sc = new Scanner(System.in);
+        System.out.print("set count Shapes -> ");
+        int count = sc.nextInt();
+        Shape shapes[] = new Shape[count];
+        while (count > 0){
+            Scanner scshape = new Scanner(System.in);
+            System.out.print("set shape String -> ");
+            shapes[--count] = Shape.parseShape(scshape.next());
         }
-        return area;
+
+        return shapes;
     }
-
-    public   double areaShapes( Shape[] shapes, String shapeName){
-        double area = 0;
-
-        for (Shape shape: shapes){
-            if (shapeName.equals(shape.getClass().getSimpleName())) area += shape.calcArea();
-        }
-        return area;
-    }
-
-    public   double areaShapes( Shape[] shapes, Class shapeName){
-        double area = 0;
-
-        for (Shape shape: shapes){
-            if (shape.getClass() == shapeName) area += shape.calcArea();
-        }
-        return area;
-    }
-
-    public  double[] areaShapesByObj (Shape[] shapes){
-        double[] areas = new double [3];
-        for (Shape shape: shapes){
-            if (shape instanceof Circle) areas[0] += shape.calcArea();
-            else if (shape instanceof Triangle) areas[1] += shape.calcArea();
-            else if (shape instanceof Rectangle) areas[2] += shape.calcArea();
-        }
-        return areas;
-    }
-
-    public  void printAllAreasByObj (double[] areas){
-        System.out.println("area Circle = " + areas[0]);
-        System.out.println("area Triangle = " + areas[1]);
-        System.out.println("area Rectangle = " + areas[2]);
-    }
-
-
-
 }
