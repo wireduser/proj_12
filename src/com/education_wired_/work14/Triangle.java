@@ -54,6 +54,7 @@ public class Triangle extends Shape {
 
     public static Triangle parseTriangle(String stringToParse){
         String[] parseArgs = stringToParse.split(":");
-        return new Triangle(parseArgs[1],Integer.parseInt(parseArgs[2]),Integer.parseInt(parseArgs[3]),Integer.parseInt(parseArgs[4]));
+        String[] dimArgs = parseArgs[2].split(",");
+        return new Triangle(parseArgs[1],Integer.parseInt(dimArgs[0]),Integer.parseInt(dimArgs[1]),Integer.parseInt(dimArgs[2]));
     }
 }

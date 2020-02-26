@@ -43,7 +43,8 @@ public class Rectangle extends Shape{
 
     public static Rectangle parseRectangle(String stringToParse){
         String[] parseArgs = stringToParse.split(":");
-        return new Rectangle(parseArgs[1],Integer.parseInt(parseArgs[2]),Integer.parseInt(parseArgs[3]));
+        String[] dimArgs = parseArgs[2].split(",");
+        return new Rectangle(parseArgs[1],Integer.parseInt(dimArgs[0]),Integer.parseInt(dimArgs[1]));
     }
 
 }

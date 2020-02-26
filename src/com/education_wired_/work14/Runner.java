@@ -14,9 +14,9 @@ public class Runner {
 
     public  Shape[] createShapes(){
         return new Shape[] {
-            Shape.parseShape("Triangle:RED:12:13:12"),
+            Shape.parseShape("Triangle:RED:12,13,12"),
             Shape.parseShape("cirCle:graY:10"),
-            Shape.parseShape("ReCtanGle :Orange:3:12"),
+            Shape.parseShape("ReCtanGle :Orange:3,12"),
         };
     }
 
