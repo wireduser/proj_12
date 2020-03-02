@@ -44,18 +44,23 @@ public abstract class Shape implements Drawable, Comparable, Cloneable{
     public static Shape parseShape(String strShape){
         String[] shapeArgs = strShape.split(":");
         //String[] dimArgs = shapeArgs[2].split(",");
+        Shape shape = null;
+
         switch (shapeArgs[0].toUpperCase().trim()){
             case "CIRCLE":
                 //return new Circle(shapeArgs[1],Integer.parseInt(shapeArgs[2]));
-                return Circle.parseCircle(strShape);
+                shape = Circle.parseCircle(strShape);
+                break;
             case "TRIANGLE":
 
                 //return new Triangle(shapeArgs[1],Integer.parseInt(dimArgs[0]),Integer.parseInt(dimArgs[1]),Integer.parseInt(dimArgs[2]));
-                return  Triangle.parseTriangle(strShape);
+                shape = Triangle.parseTriangle(strShape);
+                break;
             case "RECTANGLE":
                 //return new Rectangle(shapeArgs[1],Integer.parseInt(dimArgs[0]),Integer.parseInt(dimArgs[1]));
-                return  Rectangle.parseRectangle(strShape);
+                shape = Rectangle.parseRectangle(strShape);
+                break;
         }
-        return null;
+        return shape;
     }
 }
